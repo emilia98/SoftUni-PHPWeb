@@ -1,17 +1,39 @@
 <?php
 
+namespace Content;
+
+use User\User;
+
 class Question
 {
     const TITLE_MIN_LENGTH = 3;
     const BODY_MIN_LENGTH = 10;
 
-    private static $lastId;
+    /**
+     * @var int
+     */
+    private static $lastId = 0;
 
-    private $id; // int
-    private $title; // string
-    private $body; // string
-    private $author; // User
-    private $answers = []; // Answer[]
+    /**
+     * @var int
+     */
+    private $id;
+    /**
+     * @var string
+     */
+    private $title;
+    /**
+     * @var string
+     */
+    private $body;
+    /**
+     * @var User
+     */
+    private $author;
+    /**
+     * @var Answer[]
+     */
+    private $answers = [];
 
     public function __construct(string $title,
                                 string $body,
@@ -33,7 +55,7 @@ class Question
     public function setTitle(string $title) : void
     {
         if(strlen($title) < self::TITLE_MIN_LENGTH) {
-            throw new Exception("The title is too short!");
+            throw new \Exception("The title is too short!");
         }
 
         $this->title = $title;
@@ -47,8 +69,9 @@ class Question
     public function setBody(string $body) : void
     {
         if(strlen($body) < self::BODY_MIN_LENGTH) {
-            throw new Exception("The body is too short!");
+            throw new \Exception("The body is too short!");
         }
+        $this->body = $body;
     }
 
     public function getBody() : string

@@ -1,17 +1,41 @@
 <?php
 
+namespace Content;
+use User\User;
+
 class Answer
 {
     const BODY_MIN_LENGTH = 5;
 
-    public static $lastId;
+    /**
+     * @var int
+     */
+    public static $lastId = 0;
 
-    private $id; // int
-    private $body; // string
-    private $author; // User
-    private $question; // Question
-    private $answer; // Answer
-    private $comments = []; // Answer[]
+    /**
+     * @var  int
+     */
+    private $id;
+    /**
+     * @var string
+     */
+    private $body;
+    /**
+     * @var User
+    */
+    private $author;
+    /**
+     * @var Question
+     * */
+    private $question;
+    /**
+     * @var Answer
+    */
+    private $answer;
+    /**
+     * @var Answer[]
+     */
+    private $comments = [];
 
     public function __construct(string $body,
                                 User $author,
@@ -33,7 +57,7 @@ class Answer
     public function setBody(string $body) : void
     {
         if(strlen($body) < self::BODY_MIN_LENGTH) {
-            throw new Exception("The body is too short!");
+            throw new \Exception("The body is too short!");
         }
         $this->body = $body;
     }
@@ -68,9 +92,17 @@ class Answer
         $this->answer = $answer;
     }
 
-    public function get() : Answer
+    public function getAnswer() : Answer
     {
         return $this->answer;
+    }
+
+    /**
+     * @return array
+     */
+    public function getComments(): array
+    {
+        return $this->comments;
     }
 
     public function comment(Answer $answer)

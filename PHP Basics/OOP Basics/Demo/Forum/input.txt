@@ -1,0 +1,16 @@
+register pesho 132
+register pesho 123a
+login pesho 123
+login pesho 123a
+ask how_to_write_oop one_really_important_Q&A
+show
+answer 1 lesno_da_ama_ne
+register tosho aaa
+register tosho 111aaa
+login tosho 111aaa
+answer 1 not_so_easy
+comment 1 pushi-na-kirilica
+login pesho 123a
+comment 1 __tiho_be
+comment 2 ti_pishi_na_kirilica
+show

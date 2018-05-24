@@ -1,16 +1,37 @@
 <?php
+namespace User;
 
+use Content\Answer;
+use Content\Question;
 
 class User
 {
     private static $lastId = 0;
 
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $password;
-    private $questions = []; // Question[]
-    private $answers = []; // Answer[]
-    private $comments = []; // Answer[]
+    /**
+     * @var Question[]
+     */
+    private $questions = [];
+    /**
+     * @var Answer[]
+     */
+    private $answers = [];
+    /**
+     * @var Answer[]
+     */
+    private $comments = [];
 
     public function __construct(string $username, string $password)
     {
@@ -40,15 +61,16 @@ class User
 
     public function setPassword($password)
     {
-        if(!preg_match("/[0-9]+/g", $password)){
-            throw new Exception("The password should contain digits!");
+        if(!preg_match("/[0-9]+/", $password)){
+            throw new \Exception("The password should contain digits!");
         }
 
-        if(!preg_match("/[a-z]+/g", $password)){
-            throw new Exception("The password should contain lowercase letters!");
+        if(!preg_match("/[a-z]+/", $password)){
+            throw new \Exception("The password should contain lowercase letters!");
         }
 
         $this->password = $password;
+        return false;
     }
 
     public function getQuestions()
