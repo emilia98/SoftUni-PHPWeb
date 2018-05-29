@@ -1,5 +1,6 @@
 <?php
-
+declare(strict_types = 1);
+require_once('Details.php');
 class Car
 {
     /**
@@ -76,5 +77,10 @@ class Car
     public function getYear() :int
     {
         return $this->year;
+    }
+
+    public function addDetails(?string &$engine, ?int &$seats, ?int &$horsepower) :void
+    {
+        $this->details = new Details($engine, $seats, $horsepower);
     }
 }

@@ -47,3 +47,11 @@ for ($index = 0; $index < count($cars); $index++) {
     $carProps[] = $cars[$index]->getYear();
     echo implode(',', $carProps).PHP_EOL;
 }
+
+/*
+Sample Input:
+Renault Scenic 2010
+Audi A6 12
+Audi A6 10
+Renault SCENIC 2010
+*/
