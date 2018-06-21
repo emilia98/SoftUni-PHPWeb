@@ -1,0 +1,7 @@
+-> several constructors
+array [department] -> salary
+array [department] -> Employee[]
+
+-> getters and setters
+-> array[department] -> salary
+-> highestSalaryDepartment
